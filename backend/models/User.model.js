@@ -2,13 +2,11 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    username: {
+    fullName: {
       type: String,
       required: true,
-      unique: true,
       trim: true,
-      minlength: 3,
-      maxlength: 20,
+      maxLength: 50,
     },
     email: {
       type: String,
@@ -25,6 +23,10 @@ const userSchema = new mongoose.Schema(
     createAt: {
       type: Date,
       default: Date.now,
+    },
+    profilePicture: {
+      type: String,
+      default: "",
     },
   },
   { timestamps: true }
